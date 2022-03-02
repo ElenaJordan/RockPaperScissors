@@ -43,3 +43,13 @@ body {
   display: flex;
   justify-content: space-between;
 }
+button {
+  height: 125px;
+  width: 125px;
+  border-radius: 8px;
+  font-size: medium;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-color: black;
+  background-color: aqua;
+}
