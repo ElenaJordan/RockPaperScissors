@@ -8,9 +8,38 @@
 body {
   font-size: 28px;
 }
+
 .container {
-  background-color: aqua;
+  background-color: #e4e7eb;
   max-width: 1150px;
   margin: 0 auto;
   padding: 0 30px;
+}
+
+.headerBar .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resultsScreen .container {
+  display: flex;
+  height: 600px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resultsScreen .container .userSelection {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultsScreen .container .cpuSelection {
+  display: flex;
+  flex-direction: column;
+}
+
+.userButtons .container {
+  display: flex;
+  justify-content: space-between;
 }
