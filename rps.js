@@ -2,26 +2,28 @@ const rockButton = document.querySelector("#rockButton");
 const paperButton = document.querySelector("#paperButton");
 const scissorsButton = document.querySelector("#scissorsButton");
 let arrayGame = ["Rock", "Paper", "Scissors"];
-let playerScore = 0;
-let computerScore = 0;
+let playerScore = document.getElementById("#playerScoreNum");
+let computerScore = document.getElementById("#cpuScoreNum");
+let playerCounter = 0;
+let cpuCounter = 0;
 let playerChoice;
+let computerChoice;
+let playerScoreNum = document.querySelector("#playerScoreNum");
+let cpuScoreNum = document.querySelector("#cpuScoreNum");
 
 rockButton.addEventListener('click', () => {
     document.getElementById("userSelectionIcon").src = "Images/Rock.png";
-    let playerChoice = "Rock";
-    playRound();
+    playRound("Rock");
 });
 
 paperButton.addEventListener('click', () => {
     document.getElementById("userSelectionIcon").src = "Images/Paper.png";
-    let playerChoice = "Paper";
-    playRound();
+    playRound("Paper");
 });
 
 scissorsButton.addEventListener('click', () => {
     document.getElementById("userSelectionIcon").src = "Images/Scissors.png";
-    let playerChoice = "Scissors";
-    playRound();
+    playRound("Scissors");
 });
 
 function computerPlay() {
@@ -31,7 +33,7 @@ function computerPlay() {
     return cpuResults[rpsNumber];
 }
 
-function playRound() {
+function playRound(playerChoice) {
     let computerChoice = computerPlay();
     let result;
     console.log("The computer selected: " + computerChoice + ".");
@@ -43,16 +45,22 @@ function playRound() {
             computerScore++;
             document.getElementById("cpuSelectionIcon").src = "Images/Paper.png";
             result = "Paper beats Rock! Computer wins.";
+            cpuCounter++;
+            cpuScoreNum.textContent = cpuCounter;
         } else {
             playerScore++;
             document.getElementById("cpuSelectionIcon").src = "Images/Scissors.png";
             result = "Rock beats Scissors! You win";
+            playerCounter++;
+            playerScoreNum.textContent = playerCounter;
         }
     } else if (playerChoice === "Paper") {
         if (computerChoice === "Rock") {
             playerScore++;
             document.getElementById("cpuSelectionIcon").src = "Images/Rock.png";
             result = "Paper beats Rock! You win.";
+            playerCounter++;
+            playerScoreNum.textContent = playerCounter;
         } else if (computerChoice === "Paper") {
             document.getElementById("cpuSelectionIcon").src = "Images/Paper.png";
             result = "It's a tie!. Nobody wins.";
@@ -60,16 +68,22 @@ function playRound() {
             computerScore++;
             document.getElementById("cpuSelectionIcon").src = "Images/Scissors.png";
             result = "Scissors beats Paper! Computer wins";
+            cpuCounter++;
+            cpuScoreNum.textContent = cpuCounter;
         }
     } else {
         if (computerChoice === "Rock") {
             computerScore++;
             document.getElementById("cpuSelectionIcon").src = "Images/Rock.png";
             result = "Rock beats Scissors! Computer Wins.";
+            cpuCounter++;
+            cpuScoreNum.textContent = cpuCounter;
         } else if (computerChoice === "Paper") {
             playerScore++;
             document.getElementById("cpuSelectionIcon").src = "Images/Paper.png";
             result = "Scissors beats Paper! You win";
+            playerCounter++;
+            playerScoreNum.textContent = playerCounter;
         } else {
             document.getElementById("cpuSelectionIcon").src = "Images/Scissors.png";
             result = "It's a tie!. Nobody wins.";

@@ -53,3 +53,16 @@ button {
   border-color: black;
   background-color: aqua;
 }
+
+.scoreCard .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scoreCard .container .playerScore {
+  margin-top: 30px;
+}
+
+.scoreCard .container .cpuScore {
+  margin-top: 30px;
+}
